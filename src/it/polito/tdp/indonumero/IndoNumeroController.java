@@ -19,9 +19,9 @@ public class IndoNumeroController {
 	private int TMAX = 7; // log2(100) = 6.64 ricerca dicotomica
 	
 	private int segreto; // numero da indovinare
-	private int tentativi; // numero di tentativi fatti dall'utente
+	private int tentativi; // numero di tentativi già fatti dall'utente
 	
-	private boolean inGame = false;
+	//private boolean inGame = false; 
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -55,7 +55,7 @@ public class IndoNumeroController {
     	
     	this.segreto = (int)(Math.random()*NMAX) + 1; 
     	this.tentativi = 0;
-    	this.inGame = true;
+    	//this.inGame = true;
     	
     	btnNuova.setDisable(true); // disattivo il bottono Nuova Partita
     	boxGioco.setDisable(false); // attivo HBox con Tentativo e bottone Prova
@@ -79,7 +79,7 @@ public class IndoNumeroController {
     		return ; 
     	}
     	
-    	try { // la funzione parseInt genera un'eccezione che devo gestire
+    	try { // la funzione parseInt che converte una stringa in numero genera un'eccezione che devo gestire
     		
     		int num = Integer.parseInt(numS) ;
     		// numero era effettivamente un intero
@@ -96,7 +96,7 @@ public class IndoNumeroController {
     			// chiudere la partire: disabilitare area gioco e riabilitare bottone Nuova Partita
     			boxGioco.setDisable(true);
     			btnNuova.setDisable(false);
-    			this.inGame = false;
+    			//this.inGame = false;
     			
     		} else {
     			
@@ -110,7 +110,7 @@ public class IndoNumeroController {
     				// chiudere la partire: disabilitare area gioco e riabilitare bottone Nuova Partita
         			boxGioco.setDisable(true);
         			btnNuova.setDisable(false);
-        			this.inGame = false;
+        			//this.inGame = false;
         			
     			} else {
     				// ancora in gioco
